@@ -1,12 +1,11 @@
 import React from 'react'
 import { Outlet, Route, Routes } from 'react-router-dom'
-import Header from '../pages/Header'
 
 const MainRoute = () => {
     return (
         <div>
             <Routes>
-                <Route path="/Header" element={<Header/>}/>
+                <Route/>
             </Routes>
             <Outlet/>
         </div>

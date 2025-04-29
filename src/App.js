@@ -1,9 +1,6 @@
-import MainRoute from "./route";
-
 function App() {
   return (
     <div className="App">
-        <MainRoute/>
     </div>  
   );
 }
