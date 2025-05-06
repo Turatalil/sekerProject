@@ -38,12 +38,11 @@ color: #000000;
 const H2Style = styled.span`
     width: 161.13157653808594;
 height: 17;
-top: 39px;
-left: 87.24px;
 font-family: Montserrat;
 font-weight: 600;
 font-size: 14px;
 line-height: 100%;
 letter-spacing: 0%;
 color: #000000;
+margin-top: 2px;
 `

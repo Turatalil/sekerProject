@@ -28,4 +28,5 @@ const GlobalContainer = styled.div`
     width: 1170px;
 height: 56px;
 margin: auto;
+margin-top: 22px;
 `
