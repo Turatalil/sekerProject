@@ -1,11 +1,12 @@
-import MainRoute from "./route";
+import React from 'react'
+import MainRoute from './route'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div>
       <MainRoute/>
-    </div>  
-  );
+    </div>
+  )
 }
 
-export default App;
+export default App
