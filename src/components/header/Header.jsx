@@ -1,11 +1,12 @@
 import React from 'react'
+import Head from './head/Head'
 
 const Header = () => {
-    return (
-        <div>
-            <h1>Header</h1>
-        </div>
-    )
+  return (
+    <div>
+      <Head/>
+    </div>
+  )
 }
 
 export default Header
