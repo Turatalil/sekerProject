@@ -1,12 +1,12 @@
-import Header from "./components/header/Header";
-import Swagger from "../src/swagger/Swagger"
-function App() {
+import React from 'react'
+import MainRoute from './route'
+
+const App = () => {
   return (
-    <div className="App">
-      <Header/>
-      <Swagger/>
-    </div>  
-  );
+    <div>
+      <MainRoute/>
+    </div>
+  )
 }
 
-export default App;
+export default App
