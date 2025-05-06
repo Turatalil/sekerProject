@@ -4,7 +4,7 @@ import Head from './head/Head'
 const Header = () => {
   return (
     <div>
-        <Head/>
+      <Head/>
     </div>
   )
 }

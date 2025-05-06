@@ -1,14 +1,16 @@
 import React from 'react'
-import { Outlet, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import Header from '../components/header/Header'
+import Swagger from '../swagger/Swagger'
+import UserPage from '../pages/UserPage'
+
 
 const MainRoute = () => {
     return (
-        <div>
-            <Routes>
-                <Route/>
-            </Routes>
-            <Outlet/>
-        </div>
+        <Routes>
+            <Route path="/admin"  element={<><Header /><Swagger /></>}/>
+            <Route path="/user" element={<UserPage/>}/>
+        </Routes>
     )
 }
 

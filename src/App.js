@@ -1,8 +1,11 @@
-function App() {
+import MainRoute from './route'
+
+const App = () => {
   return (
-    <div className="App">
-    </div>  
-  );
+    <div>
+      <MainRoute/>
+    </div>
+  )
 }
 
-export default App;
+export default App
