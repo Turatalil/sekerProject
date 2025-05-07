@@ -1,8 +1,12 @@
 import React from 'react'
+import Users from '../swagger/UserProfile'
 
 const UserPage = () => {
   return (
-    <div>UserPage</div>
+    <div>
+      UserPage
+     <Users/>
+    </div>
   )
 }
 
