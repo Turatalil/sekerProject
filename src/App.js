@@ -1,3 +1,4 @@
+import UserPage from './pages/UserPage'
 import MainRoute from './route'
 
 const App = () => {
