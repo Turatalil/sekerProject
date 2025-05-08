@@ -53,6 +53,7 @@ const PromoSlider = () => {
 };
 
 export default PromoSlider;
+
 const SliderWrapper = styled.div`
     overflow: hidden;
     position: relative;
