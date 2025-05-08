@@ -16,6 +16,7 @@ const Input = (props) => {
                 fontColor={props.fontColor}
                 fontSize={props.fontSize}
                 padding={props.padding}
+                borderWidth={props.borderWidth}
                 lineHeight={props.lineHeight}
                 border={props.border}
                 margin={props.margin}
@@ -25,7 +26,7 @@ const Input = (props) => {
                 display={props.display}
                 justifyContent={props.justifyContent}
                 alignItems={props.alignItems}
-                type="text" />
+                type={props.type} />
         </div>
     )
 }
@@ -45,6 +46,7 @@ const InputStyle = styled.input`
     font-weight: ${(props) => props.fontWeight};
     line-height: ${(props) => props.lineHeight};
     margin-top: ${(props) => props.marginTop} ; 
+    border-width: ${(props) => props.borderWidth};
     margin-bottom: ${(props) => props.marginBottom} ;
     cursor: ${(props) => props.cursor} ;
     display: ${(props) => props.display};
