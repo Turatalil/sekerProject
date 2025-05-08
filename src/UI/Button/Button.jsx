@@ -13,15 +13,18 @@ const Button = (props) => {
                 marginTop={props.marginTop}
                 fontColor={props.fontColor}
                 fontSize={props.fontSize}
+                gap={props.gap}
                 padding={props.padding}
                 border={props.border}
                 margin={props.margin}
+                color={props.color}
+                height={props.height}
                 width={props.width}
                 cursor={props.cursor}
                 display={props.display}
                 justifyContent={props.justifyContent}
                 alignItems={props.alignItems}
-            >{props.buttonName}
+            ><img src={props.url} alt="" />{props.buttonName}
             </ButtonStyle>
         </div>
     )
@@ -30,8 +33,11 @@ const Button = (props) => {
 export default Button;
 
 const ButtonStyle = styled.button`
+color: ${(props) => props.color};
     width: ${(props) => props.width};
     border: ${(props) => props.border};
+    height: ${(props) => props.height};
+    gap: ${(props) => props.gap};
     font-size: ${(props) => props.fontSize} ;
     color: ${(props) => props.fontColor};
     padding: ${(props) => props.padding};
