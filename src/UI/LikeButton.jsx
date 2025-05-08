@@ -40,7 +40,7 @@ const LikeButton = () => {
           />
         </svg>
       </button>
-      <span style={{ color: '#4b5563' }}>{likesCount}</span>
+      {/* <span style={{ color: '#4b5563' }}>{likesCount}</span> */}
     </div>
   );
 };
