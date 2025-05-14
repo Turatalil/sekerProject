@@ -42,7 +42,7 @@ const SearchWrapper = styled.div`
 const IconWrapper = styled.img`
   position: absolute;
   top: 9px;
-  height: 2.6em;
+  height: 2.5em;
   right: 0;
   display: flex;
   justify-content: center;
@@ -51,7 +51,7 @@ const IconWrapper = styled.img`
 
 const SearchIcon = styled.img`
     position: relative;
-    top: -1.9em;
-    left: 27em;
+    top: -1.8em;
+    left: 28em;
     color: black;
 `

@@ -1,12 +1,12 @@
 import React from 'react'
-import Swagger from "../swagger/Swagger"
 import HeadUser from '../components/header/head/HeadUser'
 import Footer from '../components/footer/Footer'
+import PromoSlider from '../swagger/PromoSlider'
 const User = () => {
     return (
         <div>
             <HeadUser/>
-            <Swagger/>
+            <PromoSlider/>
             <Footer/>
         </div>
     )
