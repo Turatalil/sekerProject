@@ -8,8 +8,9 @@ const AddPhone = () => {
         <GlobalContainer>
             <div>
                 <div>
-                    <SpanSelectStyle>Производитель<ImageStyle src={ImageSelect} alt="" /></SpanSelectStyle>
-                <GlobalSelectStyle name="" id="">
+                    <SpanSelectStyle name ="gol">Производитель<ImageStyle src={ImageSelect} alt="" /></SpanSelectStyle>
+                <GlobalSelectStyle name="gol" id="">
+                    
                         <OptionSelectStyle value="apple">Apple</OptionSelectStyle>
                         <OptionSelectStyle value="nokia">Nokia</OptionSelectStyle>
                         <OptionSelectStyle value="realme">Realme</OptionSelectStyle>
@@ -63,6 +64,10 @@ const AddPhone = () => {
 
 
 export default AddPhone
+
+const OptionStyle = styled.option`
+    width: 200px;
+`
 
 const SpanSelectStyle = styled.span`
     width: 164px;
