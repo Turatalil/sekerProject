@@ -4,7 +4,7 @@ import ImageAdd from "../../assets/image/Rectangle 222.png"
 import ImageRi from "../../assets/image/ri_image-add-fill.png"
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const ApiSwagger = () => {
+const PhotoUpLoader = () => {
     const [photo, setPhoto] = useState([]);
     const [activeModalId, setActiveModalId] = useState(null);
     const [editPhotoId, setEditPhotoId] = useState(null);
@@ -105,7 +105,7 @@ const ApiSwagger = () => {
     );
 };
 
-export default ApiSwagger;
+export default PhotoUpLoader;
 
 // Styled components
 const ButtonRow = styled.div`

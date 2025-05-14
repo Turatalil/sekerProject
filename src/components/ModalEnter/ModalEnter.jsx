@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import Input from '../../UI/Input/Input'
 import ImageGoogle from "../../assets/icon/image 114.png"
 import Button from '../../UI/Button/Button'
@@ -18,9 +17,9 @@ const ModalEnter = ({ setShowModal }) => {
                 <>
                     <ContainerEnter>
                         <SpanStyle>Мой профиль</SpanStyle>
-                        <Input type="text" placeholder="E-mail" border="none" backgroundColor="#FFFFFF" fontFamily="Montserrat" fontWeight="500" fontSize="20px" lineHeight="100%" width="368.60968017578125px" height="55.454551696777344px" borderRadius="10px" />
+                        <Input paddingLeft="20px" type="text" placeholder="E-mail" border="none" backgroundColor="#FFFFFF" fontFamily="Montserrat" fontWeight="500" fontSize="20px" lineHeight="100%" width="368.60968017578125px" height="55.454551696777344px" borderRadius="10px" />
                         <Input type="password" placeholder="Пароль" border="none" backgroundColor="#FFFFFF" fontFamily="Montserrat" fontWeight="500" fontSize="20px" lineHeight="100%" width="368.60968017578125px" height="55.454551696777344px" borderRadius="10px" />
-                        <Button url={ImageGoogle} display="flex" gap="5px" justifyContent="center" alignItems="center" fontFamily="Montserrat" fontWeight="500" fontSize="23px" lineHeight="100%" cursor="pointer" border="none" buttonName="Войти через Google" width="369px" height="48px" borderRadius="10px" backgroundColor="#FFFFFF" />
+                        <Button fontColor="#000000" url={ImageGoogle} border="2px solid black" margin="auto" display="flex"  gap="5px" justifyContent="center" alignItems="center" fontFamily="Montserrat" fontWeight="500" fontSize="23px" lineHeight="100%" cursor="pointer" buttonName="Войти через Google" width="369px" height="48px" borderRadius="10px" backgroundColor="#FFFFFF" />
                         <Button cursor="pointer" color="#FFFFFF" buttonName="Войти" fontFamily="Montserrat" fontWeight="600" fontSize="28px" lineHeight="100%" width="368.60968017578125px" height="52.395729064941406px" border="none" borderRadius="10px" backgroundColor="#FC3A74" />
                     </ContainerEnter>
                     <BackdropStyle onClick={closeModalHandler}></BackdropStyle>
@@ -28,7 +27,6 @@ const ModalEnter = ({ setShowModal }) => {
                 document.body
             )}
         </div >
-
     )
 }
 
