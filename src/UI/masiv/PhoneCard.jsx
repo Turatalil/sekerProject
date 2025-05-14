@@ -6,11 +6,20 @@ import LikeButton from '../LikeButton';
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 24px;
+  gap: 14px;
   padding: 24px;
+  margin-left:-20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 `;
 
+
 const Card = styled.div`
+width: 260px;
+height: 384px;
+
+
   position: relative;
   background: white;
   border-radius: 16px;
@@ -89,7 +98,7 @@ const PhoneCard = () => {
       price: "136 000 сом",
       rating: 4.1,
       reviews: "13 отзывов",
-      image: ""
+      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
     },
     {
       id: 2,
@@ -98,7 +107,7 @@ const PhoneCard = () => {
       price: "125 000 сом",
       rating: 4.5,
       reviews: "25 отзывов",
-      image: ""
+      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
     },
     {
       id: 3,
@@ -107,7 +116,7 @@ const PhoneCard = () => {
       price: "95 000 сом",
       rating: 4.3,
       reviews: "18 отзывов",
-      image: ""
+      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
     },
     {
       id: 4,
@@ -116,7 +125,7 @@ const PhoneCard = () => {
       price: "80 000 сом",
       rating: 4.2,
       reviews: "20 отзывов",
-      image: ""
+      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
     },
     {
       id: 5,
@@ -125,7 +134,7 @@ const PhoneCard = () => {
       price: "85 000 сом",
       rating: 4.4,
       reviews: "15 отзывов",
-      image: ""
+      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
     },
     {
       id: 6,
@@ -134,7 +143,7 @@ const PhoneCard = () => {
       price: "90 000 сом",
       rating: 4.0,
       reviews: "12 отзывов",
-      image: ""
+      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
     },
     {
       id: 7,
@@ -143,7 +152,7 @@ const PhoneCard = () => {
       price: "82 000 сом",
       rating: 4.1,
       reviews: "10 отзывов",
-      image: ""
+      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
     },
     {
       id: 8,
@@ -152,7 +161,7 @@ const PhoneCard = () => {
       price: "100 000 сом",
       rating: 4.3,
       reviews: "22 отзывов",
-      image: ""
+      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
     },
     {
       id: 9,
@@ -161,7 +170,7 @@ const PhoneCard = () => {
       price: "150 000 сом",
       rating: 4.6,
       reviews: "8 отзывов",
-      image: ""
+      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
     },
     {
       id: 10,
@@ -170,7 +179,7 @@ const PhoneCard = () => {
       price: "120 000 сом",
       rating: 4.5,
       reviews: "7 отзывов",
-      image: ""
+      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
     }
   ];
   

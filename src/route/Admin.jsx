@@ -21,10 +21,12 @@ const Admin = () => {
                     <ManufacturerFilter/>   
                 </div>
                 <div>
+                
                     <PhoneCard/>
                 </div>
             </MainStyle>
             <Footer/>
+        
         </div>
     )
 }
@@ -34,8 +36,8 @@ export default Admin;
 const MainStyle = styled.div`
     display: flex;
     width: 1170px;
-    border: 1px solid;
+  
     margin: auto;
-    gap: 28px;
-    justify-content: space-between;
+    gap: 0px;
+   
 `
