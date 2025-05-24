@@ -1,10 +1,9 @@
+import React from 'react'
+
 const ApiRes = () => {
-    
-    return (
-        <div>
-                
-        </div>
-    )
+  return (
+    <div>ApiRes</div>
+  )
 }
 
 export default ApiRes
