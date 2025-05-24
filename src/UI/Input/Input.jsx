@@ -1,11 +1,10 @@
-import React from 'react'
 import styled from 'styled-components';
 
 const Input = (props) => {
-    console.log(props);
     return (
         <div>
             <InputStyle
+            onChange={props.onChange}
                 placeholder={props.placeholder ? props.placeholder : "Search"}
                 backgroundColor={props.backgroundColor}
                 marginBottom={props.marginBottom}
