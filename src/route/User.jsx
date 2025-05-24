@@ -13,7 +13,6 @@ const User = () => {
         <div>
             <HeadUser/>
             <PromoSlider/>
-            <Swagger />
             <Novinki/>
             <MainStyle>
                 <div>

@@ -4,8 +4,6 @@ const App = () => {
   return (
     <div>
       <MainRoute/>
-    </div>
-      <MainRoute/> 
     </div>  
   )
 }
