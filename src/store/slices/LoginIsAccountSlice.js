@@ -3,6 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
     loading: false,
     message: "",
+    error: "",
 };
 
 export const loginIsAccountSlice = createSlice({
@@ -11,19 +12,22 @@ export const loginIsAccountSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-        .addCase(modalEnter.pending, (state) => {
-            state.loading = true;
-            state.message = "";
-        })
-        .addCase(modalEnter.fulfilled, (state) => {
-            state.loading = false;
-            state.message = "";
+            .addCase(modalEnter.pending, (state) => {
+                state.loading = true;
+                state.message = "";
+                state.error = ""
+            })
+            .addCase(modalEnter.fulfilled, (state) => {
+                state.loading = false;
+                state.message = "";
+                state.error = ""
             })
             .addCase(modalEnter.rejected, (state, action) => {
                 state.loading = false;
                 state.message = action.payload || "Ошибка при входе";
+                state.error = "Ошибка при входе"
             });
-        },
+    },
 });
 
 export default loginIsAccountSlice.reducer;
@@ -40,11 +44,9 @@ export const modalEnter = createAsyncThunk(
                 },
                 body: JSON.stringify(loginIsAccount)
             });
-
             if (req.status !== 200 && req.status !== 201) {
                 throw new Error("Запрос жиберуудо ката кетти!");
             }
-
             const data = await req.json();
             return fulfillWithValue(data);
         } catch (error) {

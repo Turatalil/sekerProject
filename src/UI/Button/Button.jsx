@@ -5,6 +5,7 @@ const Button = (props) => {
     return (
         <div onClick={props.onClick}>
             <ButtonStyle
+                disabled={props.disabled}
                 backgroundColor={props.backgroundColor}
                 marginBottom={props.marginBottom}
                 borderRadius={props.borderRadius}
@@ -33,6 +34,8 @@ const Button = (props) => {
 export default Button;
 
 const ButtonStyle = styled.button`
+    opacity: ${(props) => props.disabled ? "0.5" : props.opacity || "1"};
+    cursor: ${(props) => props.disabled ? "not-allowed" : props.cursor || "pointer"};
     color: ${(props) => props.color};
     width: ${(props) => props.width ? props.width : "206.0001678466797px"};
     height: ${(props) => props.height ? props.height : "47.00014114379883px"};
@@ -48,8 +51,11 @@ const ButtonStyle = styled.button`
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : "600"};
     margin-top: ${(props) => props.marginTop ? props.marginTop : "0px"} ; 
     margin-bottom: ${(props) => props.marginBottom ? props.marginBottom : "0px"} ;
-    cursor: ${(props) => props.cursor ? props.cursor : "pointer"} ;
     display: ${(props) => props.display ? props.display : "flex"};
     justify-content: ${(props) => props.justifyContent ? props.justifyContent : "center"};
     align-items: ${(props) => props.alignItems ? props.alignItems : "center"};
+        :disabled {
+        pointer-events: none;
+    }
+
 `
