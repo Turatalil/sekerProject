@@ -1,11 +1,18 @@
 import React from 'react'
 import ImageHeaderVector1Png from "../../../../assets/icon/Vector (1).png"
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom'
+
 const HeadEnterUser = () => {
+    const navigate = useNavigate()
+    const click = () => {
+        navigate("/admin")
+        
+    }
     return (
         <GlobalContainer>
             <img src={ImageHeaderVector1Png} alt="" />
-            <SpanStyle>Выйти</SpanStyle>
+            <SpanStyle onClick={click} >Выйти</SpanStyle>
         </GlobalContainer>
     )
 }
@@ -29,4 +36,5 @@ color: #000000;
 position: relative;
 left: 1em;
 top: -3px;
+cursor: pointer;
 `

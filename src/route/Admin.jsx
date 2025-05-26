@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from '../components/header/Header'
-import Swagger from "../swagger/Swagger"
 import Footer from '../components/footer/Footer'
 import PriceFilter from "../UI/PriceFilter"
 import ColorFilter from "../UI/ColorFilter"
@@ -8,11 +7,12 @@ import ManufacturerFilter from "../UI/ManufacturerFilter"
 import PhoneCard from '../UI/masiv/PhoneCard'
 import styled from 'styled-components'
 import Novinki from '../swagger/Novinki'
+import PromoSlider from '../swagger/PromoSlider'
 const Admin = () => {
     return (
         <div>
             <Header />
-            <Swagger />
+            <PromoSlider />
             <Novinki/>
             <MainStyle>
                 <div>
