@@ -10,7 +10,7 @@ const LikeButton = () => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '8px',marginLeft:'215px' }}>
       <button
         onClick={handleLike}
         style={{

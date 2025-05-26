@@ -21,8 +21,9 @@ const Admin = () => {
                     <ManufacturerFilter/>   
                 </div>
                 <div>
-                
+                    
                     <PhoneCard/>
+                  
                 </div>
             </MainStyle>
             <Footer/>
