@@ -1,8 +1,9 @@
-import { combineSlices, configureStore } from "@reduxjs/toolkit";
-import { headerSlice } from "./slices/Header";
+import { configureStore } from "@reduxjs/toolkit";
 
-const rootSlices = combineSlices({
-    header: headerSlice.reducer,
-})
+import productsReducer from "../features/products/productsSlice";
 
-export const store = configureStore({reducer: rootSlices})
+export const store = configureStore({
+  reducer: {
+    products: productsReducer,
+  },
+});

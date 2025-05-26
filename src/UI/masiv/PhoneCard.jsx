@@ -1,213 +1,136 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { FaHeart, FaShoppingBasket, FaStar } from 'react-icons/fa';
-import cor from "../../assets/image/Vector (4).png"
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchProducts } from '../../features/products/productsSlice';
+import { FaStar } from 'react-icons/fa';
+import cor from '../../assets/image/Vector (4).png';
 import LikeButton from '../LikeButton';
+import strelka from "../../assets/icon/Vector 12.png";
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 14px;
   padding: 24px;
-  margin-left:-20px;
-  width: 100%;
-  max-width: 1000px;
   margin: 0 auto;
+  max-width: 1000px;
 `;
 
-
 const Card = styled.div`
-width: 260px;
-height: 384px;
-
-
+  width: 260px;
+  height: 384px;
   position: relative;
   background: white;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  transition: box-shadow 0.3s ease;
-  &:hover {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+`;
+
+const LoadMoreButton = styled.button`
+  width: 224px;
+  height: 42px;
+  display: block;
+  margin: 20px auto;
+  padding: 10px 24px;
+  font-size: 16px;
+  color: #ec4899;
+  border: 2px solid #ec4899;
+  background: transparent;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 `;
 
-const HeartIcon = styled.div`
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  color: #f472b6;
-  font-size: 20px;
+const Smg = styled.img`
+  width: 11px;
+  height: 11px;
 `;
 
-const BasketIcon = styled.div`
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  font-size: 18px;
-  color: black;
-`;
+const Spinner = styled.div`
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #ec4899;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s linear infinite;
 
-const Image = styled.img`
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-`;
-
-const Content = styled.div`
-  padding: 16px;
-`;
-
-const Title = styled.h3`
-  font-size: 16px;
-  font-weight: 600;
-  color: #111827;
-  margin: 0;
-`;
-
-const Storage = styled.p`
-  font-size: 13px;
-  color: #6b7280;
-  margin: 4px 0;
-`;
-
-const Price = styled.p`
-  font-size: 22px;
-  font-weight: 700;
-  margin: 12px 0 8px;
-  color: black;
-`;
-
-const RatingWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  color: #6b7280;
-`;
-
-const Star = styled(FaStar)`
-  color: #f43f5e;
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 `;
 
 const PhoneCard = () => {
-  const phones = [
-    {
-      id: 1,
-      name: "Apple iPhone 15 Pro Max",
-      storage: "256GB",
-      price: "136 000 сом",
-      rating: 4.1,
-      reviews: "13 отзывов",
-      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
-    },
-    {
-      id: 2,
-      name: "Samsung Galaxy S24 Ultra",
-      storage: "512GB",
-      price: "125 000 сом",
-      rating: 4.5,
-      reviews: "25 отзывов",
-      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
-    },
-    {
-      id: 3,
-      name: "Google Pixel 8 Pro",
-      storage: "128GB",
-      price: "95 000 сом",
-      rating: 4.3,
-      reviews: "18 отзывов",
-      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
-    },
-    {
-      id: 4,
-      name: "Xiaomi 14 Pro",
-      storage: "256GB",
-      price: "80 000 сом",
-      rating: 4.2,
-      reviews: "20 отзывов",
-      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
-    },
-    {
-      id: 5,
-      name: "OnePlus 12",
-      storage: "256GB",
-      price: "85 000 сом",
-      rating: 4.4,
-      reviews: "15 отзывов",
-      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
-    },
-    {
-      id: 6,
-      name: "Oppo Find X6 Pro",
-      storage: "512GB",
-      price: "90 000 сом",
-      rating: 4.0,
-      reviews: "12 отзывов",
-      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
-    },
-    {
-      id: 7,
-      name: "Vivo X90 Pro",
-      storage: "256GB",
-      price: "82 000 сом",
-      rating: 4.1,
-      reviews: "10 отзывов",
-      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
-    },
-    {
-      id: 8,
-      name: "Huawei Mate 60 Pro",
-      storage: "256GB",
-      price: "100 000 сом",
-      rating: 4.3,
-      reviews: "22 отзывов",
-      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
-    },
-    {
-      id: 9,
-      name: "Samsung Galaxy Z Fold 5",
-      storage: "512GB",
-      price: "150 000 сом",
-      rating: 4.6,
-      reviews: "8 отзывов",
-      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
-    },
-    {
-      id: 10,
-      name: "Asus ROG Phone 7",
-      storage: "512GB",
-      price: "120 000 сом",
-      rating: 4.5,
-      reviews: "7 отзывов",
-      image: "https://gadgets.fzfdevelopers.co.zw/wp-content/uploads/2024/11/W57NO_SQ1_0000000003_NATURAL_SLf.jpeg"
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.items);
+  const status = useSelector((state) => state.products.status);
+  const next = useSelector((state) => state.products.next);
+
+  const [visibleCount, setVisibleCount] = useState(6);
+
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchProducts());
     }
-  ];
-  
+  }, [dispatch, status]);
+
+  const handleLoadMore = () => {
+    if (visibleCount < products.length) {
+      setVisibleCount((prev) => prev + 6);
+    } else if (next && status !== 'loading') {
+      dispatch(fetchProducts(next));
+      setVisibleCount((prev) => prev + 6);
+    }
+  };
 
   return (
-    <Grid>
-      {phones.map((phone) => (
-        <Card key={phone.id}>
-          <HeartIcon>
-            <LikeButton/>
-          </HeartIcon>
-          <Image src={phone.image} alt={phone.name} />
-          <Content>
-            <Title>{phone.name}</Title>
-            <Storage>{phone.storage}</Storage>
-            <Price>{phone.price}</Price>
-            <RatingWrapper>
-              <Star />
-              <span>{phone.rating}</span>
-              <span>{phone.reviews}</span>
-            </RatingWrapper>
-          </Content>
-          <BasketIcon>
-          <img src={cor} alt="" />
-          </BasketIcon>
-        </Card>
-      ))}
-    </Grid>
+    <>
+      <Grid>
+        {products.slice(0, visibleCount).map((product) => (
+          <Card key={product.id}>
+          
+
+            <LikeButton />
+            <img
+              src={product.images[0]?.image || 'https://via.placeholder.com/200'}
+              alt={product.title}
+              style={{ width: '100%', height: '200px', objectFit: 'contain' }}
+            />
+            <div style={{ padding: '16px' }}>
+              <h3>{product.title}</h3>
+              <p>{product.characteristics}</p>
+              <p style={{ fontWeight: 'bold' }}>{product.price} сом</p>
+              <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                <FaStar color="#f43f5e" />
+                <span>{product.stars}</span>
+                <span>{product.feedbacks} отзывов</span>
+              </div>
+            </div>
+            <div style={{ position: 'absolute', bottom: '16px', right: '16px' }}>
+              <img src={cor} alt="basket" />
+            </div>
+          </Card>
+        ))}
+      </Grid>
+
+      {(visibleCount < products.length || next) && (
+        <LoadMoreButton onClick={handleLoadMore} disabled={status === 'loading'}>
+          Показать ещё
+          {status === 'loading' ? <Spinner /> : <Smg src={strelka} alt="стрелка" />}
+        </LoadMoreButton>
+      )}
+    </>
   );
 };
 
