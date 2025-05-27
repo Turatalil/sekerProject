@@ -19,8 +19,6 @@ const ModalEnter = ({ setShowModal }) => {
     const isFormValid = email.trim().length > 4 && password.trim().length > 4;
     const closeModalHandler = () => {
         setShowModal(false);
-        document.body.style.overflow = "scroll";
-        document.body.style.paddingRight = "0";
     };
 
     const logInIsAccount = () => {

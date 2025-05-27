@@ -3,13 +3,23 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
     loading: false,
     message: "",
+    isAuthenticated: false,
     error: "",
 };
 
 export const loginIsAccountSlice = createSlice({
     name: "loginIsAccountSlice",
     initialState,
-    reducers: {},
+    reducers: {
+        loginSuccess(state, action) {
+            state.isAuthenticated = true;
+            state.error = null;
+        },
+        loginFailure(state, action) {
+            state.isAuthenticated = false;
+            state.error = action.payload;
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(modalEnter.pending, (state) => {

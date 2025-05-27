@@ -1,81 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProducts } from '../../features/products/productsSlice';
+import { fetchProducts } from '../../store/slices/ProductSlice';
 import { FaStar } from 'react-icons/fa';
 import cor from '../../assets/image/Vector (4).png';
 import LikeButton from '../LikeButton';
 import strelka from "../../assets/icon/Vector 12.png";
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 14px;
-  padding: 24px;
-  margin: 0 auto;
-  max-width: 1000px;
-`;
-
-const Card = styled.div`
-  width: 260px;
-  height: 384px;
-  position: relative;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-`;
-
-const LoadMoreButton = styled.button`
-  width: 224px;
-  height: 42px;
-  display: block;
-  margin: 20px auto;
-  padding: 10px 24px;
-  font-size: 16px;
-  color: #ec4899;
-  border: 2px solid #ec4899;
-  background: transparent;
-  border-radius: 40px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-`;
-
-const Smg = styled.img`
-  width: 11px;
-  height: 11px;
-`;
-
-const Spinner = styled.div`
-  border: 3px solid rgba(0, 0, 0, 0.1);
-  border-left-color: #ec4899;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  animation: spin 1s linear infinite;
-
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-`;
-
 const PhoneCard = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products.items);
-  const status = useSelector((state) => state.products.status);
-  const next = useSelector((state) => state.products.next);
+const products = useSelector((state) => state.product.items)
+const status = useSelector((state) => state.product.status)
+const next = useSelector((state) => state.product.next)
+
 
   const [visibleCount, setVisibleCount] = useState(6);
 
@@ -99,7 +36,7 @@ const PhoneCard = () => {
       <Grid>
         {products.slice(0, visibleCount).map((product) => (
           <Card key={product.id}>
-          
+
 
             <LikeButton />
             <img
@@ -135,3 +72,67 @@ const PhoneCard = () => {
 };
 
 export default PhoneCard;
+
+  const Grid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 14px;
+    padding: 24px;
+    margin: 0 auto;
+    max-width: 1000px;
+  `;
+
+  const Card = styled.div`
+    width: 260px;
+    height: 384px;
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  `;
+
+  const LoadMoreButton = styled.button`
+    width: 224px;
+    height: 42px;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 24px;
+    font-size: 16px;
+    color: #ec4899;
+    border: 2px solid #ec4899;
+    background: transparent;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  `;
+
+  const Smg = styled.img`
+    width: 11px;
+    height: 11px;
+  `;
+
+  const Spinner = styled.div`
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #ec4899;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    animation: spin 1s linear infinite;
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  `;
