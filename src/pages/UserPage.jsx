@@ -5,7 +5,7 @@ const UserPage = () => {
   return (
     <div>
       UserPage
-     <Users/>
+      <Users />
     </div>
   )
 }

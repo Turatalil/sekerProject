@@ -13,21 +13,19 @@ const Admin = () => {
         <div>
             <Header />
             <PromoSlider />
-            <Novinki/>
+            <Novinki />
             <MainStyle>
                 <div>
-                    <PriceFilter/>
-                    <ColorFilter/>
-                    <ManufacturerFilter/>   
+                    <PriceFilter />
+                    <ColorFilter />
+                    <ManufacturerFilter />
                 </div>
                 <div>
-                    
-                    <PhoneCard/>
-                  
+                    <PhoneCard />
                 </div>
             </MainStyle>
-            <Footer/>
-        
+            <Footer />
+
         </div>
     )
 }
