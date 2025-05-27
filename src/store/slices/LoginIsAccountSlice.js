@@ -11,13 +11,8 @@ export const loginIsAccountSlice = createSlice({
     name: "loginIsAccountSlice",
     initialState,
     reducers: {
-        loginSuccess(state, action) {
-            state.isAuthenticated = true;
-            state.error = null;
-        },
-        loginFailure(state, action) {
+        logout: (state) => {
             state.isAuthenticated = false;
-            state.error = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -25,15 +20,18 @@ export const loginIsAccountSlice = createSlice({
             .addCase(modalEnter.pending, (state) => {
                 state.loading = true;
                 state.message = "";
+                state.isAuthenticated = false
                 state.error = ""
             })
             .addCase(modalEnter.fulfilled, (state) => {
                 state.loading = false;
                 state.message = "";
+                state.isAuthenticated = true
                 state.error = ""
             })
             .addCase(modalEnter.rejected, (state, action) => {
                 state.loading = false;
+                state.isAuthenticated = false
                 state.message = action.payload || "Ошибка при входе";
                 state.error = "Ошибка при входе"
             });
