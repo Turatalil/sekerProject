@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 
 const HeaderFont = () => {
@@ -24,25 +23,25 @@ const GlobalContainer = styled.div`
 
 const H1Style = styled.span`
     width: 103;
-height: 40;
-top: -3px;
-left: 117px;
-font-family: Montserrat;
-font-weight: 600;
-font-size: 33px;
-line-height: 100%;
-letter-spacing: 0%;
-color: #000000;
+    height: 40;
+    top: -3px;
+    left: 117px;
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 33px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
 `
 
 const H2Style = styled.span`
     width: 161.13157653808594;
-height: 17;
-font-family: Montserrat;
-font-weight: 600;
-font-size: 14px;
-line-height: 100%;
-letter-spacing: 0%;
-color: #000000;
-margin-top: 2px;
+    height: 17;
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    margin-top: 2px;
 `

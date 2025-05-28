@@ -1,27 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import ColorCheckbox from './galocha/ColorCheckbox';
-
-const FilterContainer = styled.div`
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 16px;
-  width: 265px;
-  margin: 50px auto;
-  text-align: left;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e0e0e0;
-`;
-
-const FilterTitle = styled.h3`
-  margin: 0 0 20px 0;
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-`;
 
 const ColorFilter = () => {
   const [selectedColor, setSelectedColor] = useState(null);
@@ -57,3 +36,24 @@ const ColorFilter = () => {
 };
 
 export default ColorFilter;
+  
+const FilterContainer = styled.div`
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    width: 265px;
+    margin: 50px auto;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+  `;
+  
+  const FilterTitle = styled.h3`
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  `;

@@ -26,7 +26,7 @@ const GlobalContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 1170px;
-height: 56px;
-margin: auto;
-margin-top: 22px;
+    height: 56px;
+    margin: auto;
+    margin-top: 22px;
 `

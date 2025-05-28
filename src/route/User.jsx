@@ -1,4 +1,3 @@
-import React from 'react'
 import HeadUser from '../components/header/head/HeadUser'
 import Footer from '../components/footer/Footer'
 import PromoSlider from '../swagger/PromoSlider'
