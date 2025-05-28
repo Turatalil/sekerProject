@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import styled from 'styled-components'
 import ImageAdd from "../../assets/image/Rectangle 222.png"
 import ImageRi from "../../assets/image/ri_image-add-fill.png"
@@ -16,15 +16,12 @@ const PhotoUpLoader = () => {
             fileInputRef.current.click();
         }
     };
-
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         if (!file) return;
-
         const reader = new FileReader();
         reader.onloadend = () => {
             const base64Data = reader.result;
-
             if (editPhotoId !== null) {
                 const updatedPhotos = photo.map(item =>
                     item.id === editPhotoId ? { ...item, photo: base64Data } : item
@@ -39,24 +36,19 @@ const PhotoUpLoader = () => {
                 setPhoto([...photo, newPhoto]);
             }
         };
-
         reader.readAsDataURL(file);
-        e.target.value=""
+        e.target.value = ""
     };
-
     const openModal = (id) => {
         setActiveModalId(id);
     };
-
     const closeModal = () => {
         setActiveModalId(null);
     };
-
     const deletePhotoById = (id) => {
         setPhoto(photo.filter(el => el.id !== id));
         setActiveModalId(null);
     };
-
     return (
         <div>
             <PhotoMap>
@@ -86,14 +78,12 @@ const PhotoUpLoader = () => {
                         )}
                     </Wrapper>
                 ))}
-
                 {photo.length < 3 && (
                     <Wrapper>
                         <img src={ImageAdd} alt="" />
                         <CenterImage onClick={handleImageClick} src={ImageRi} alt="" />
                     </Wrapper>
                 )}
-
                 <HiddenInput
                     type="file"
                     accept="image/*"
@@ -107,7 +97,6 @@ const PhotoUpLoader = () => {
 
 export default PhotoUpLoader;
 
-// Styled components
 const ButtonRow = styled.div`
     display: flex;
     align-items: center;

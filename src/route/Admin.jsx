@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from '../components/header/Header'
 import Footer from '../components/footer/Footer'
 import PriceFilter from "../UI/PriceFilter"
@@ -25,7 +24,6 @@ const Admin = () => {
                 </div>
             </MainStyle>
             <Footer />
-
         </div>
     )
 }
@@ -35,8 +33,6 @@ export default Admin;
 const MainStyle = styled.div`
     display: flex;
     width: 1170px;
-  
     margin: auto;
     gap: 0px;
-   
 `

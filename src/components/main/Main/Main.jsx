@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 
 const Main = () => {
@@ -6,7 +5,6 @@ const Main = () => {
     <div>
     <Mian>
       <section>
-           
       </section>
       <section>
 

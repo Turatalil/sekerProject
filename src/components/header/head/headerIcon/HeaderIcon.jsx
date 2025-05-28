@@ -1,4 +1,3 @@
-import React from 'react'
 import ImageHeader from "../../../../assets/icon/Rectangle 2.png"
 import ImageLineOne from "../../../../assets/icon/Line 1.png"
 import ImageLineTwo from "../../../../assets/icon/Line 2.png"
@@ -30,11 +29,10 @@ const BackgroundImage = styled.img`
     width: auto;
     height: auto;
     width: 43.105262756347656;
-height: 42;
-top: 8px;
-border-radius: 10px;
-
-    `
+    height: 42;
+    top: 8px;
+    border-radius: 10px;
+`
 
 const LineOne = styled.img`
     position: absolute;
@@ -44,9 +42,9 @@ const LineOne = styled.img`
     width: auto;
     width: 12.315789222717285;
     height: 2.3px;
-left: 16px;
-border-width: 2px;
-    `
+    left: 16px;
+    border-width: 2px;
+`
 
 const LineTwo = styled.img`
     position: absolute;
@@ -54,9 +52,9 @@ const LineTwo = styled.img`
     left: 50%;
     transform: translate(-50%, -50%);
     width: auto;
-left: 18.53px;
-height: 2px;
-border-width: 2px;
+    left: 18.53px;
+    height: 2px;
+    border-width: 2px;
 `
 
 const LineThree = styled.img`
@@ -64,7 +62,6 @@ const LineThree = styled.img`
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* width: auto; */
     width: 27.71px;
     margin: auto;
     height: 2.6px;

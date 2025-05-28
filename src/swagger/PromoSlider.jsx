@@ -1,4 +1,3 @@
-import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 import ImageGalaxy from "../assets/image/21438 1.png"

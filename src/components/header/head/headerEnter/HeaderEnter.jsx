@@ -5,11 +5,9 @@ import ModalEnter from "../../../ModalEnter/ModalEnter"
 
 const HeaderEnter = () => {
     const [showModal, setShowModal] = useState(false)
-
     const showModalHandler = () => {
         setShowModal(true)
     }
-
     return (
         <GlobalContainer>
             <img onClick={showModalHandler} src={ImageHeaderVector1Png} alt="" />

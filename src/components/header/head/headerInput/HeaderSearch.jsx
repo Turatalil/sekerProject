@@ -1,6 +1,4 @@
-import React from 'react'
 import styled from 'styled-components'
-// import Input from '../../../../UI/Input/Input'
 import ImageVector from "../../../../assets/icon/Vector.png"
 import ImageHeader from "../../../../assets/icon/Rectangle 3.png"
 import Input from '../../../../UI/Input/Input'
@@ -34,19 +32,19 @@ export default HeaderSearch
 
 
 const SearchWrapper = styled.div`
-  position: relative;
-  margin-top: 20px;
-  display: inline-block;
+    position: relative;
+    margin-top: 20px;
+    display: inline-block;
 `
 
 const IconWrapper = styled.img`
-  position: absolute;
-  top: 9px;
-  height: 2.5em;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: absolute;
+    top: 9px;
+    height: 2.5em;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const SearchIcon = styled.img`

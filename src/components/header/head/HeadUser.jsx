@@ -1,4 +1,3 @@
-import React from 'react'
 import HeaderIcon from './headerIcon/HeaderIcon'
 import HeaderFont from './headerFont/HeaderFont'
 import HeaderSearch from './headerInput/HeaderSearch'
@@ -27,7 +26,7 @@ const GlobalContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 1170px;
-height: 56px;
-margin: auto;
-margin-top: 22px;
+    height: 56px;
+    margin: auto;
+    margin-top: 22px;
 `

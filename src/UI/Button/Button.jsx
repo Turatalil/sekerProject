@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 
 const Button = (props) => {
@@ -54,7 +53,7 @@ const ButtonStyle = styled.button`
     display: ${(props) => props.display ? props.display : "flex"};
     justify-content: ${(props) => props.justifyContent ? props.justifyContent : "center"};
     align-items: ${(props) => props.alignItems ? props.alignItems : "center"};
-        :disabled {
+    :disabled {
         pointer-events: none;
     }
 

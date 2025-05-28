@@ -15,12 +15,10 @@ const ModalEnter = ({ setShowModal }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-
     const isFormValid = email.trim().length > 4 && password.trim().length > 4;
     const closeModalHandler = () => {
         setShowModal(false);
     };
-
     const logInIsAccount = () => {
         if (!(email.trim()) || !(password.trim())) {
             return;
@@ -49,7 +47,6 @@ const ModalEnter = ({ setShowModal }) => {
                 <>
                     <div>
                         <ContainerEnter>
-
                             <DivStyle>
                                 <SpanStyle>Мой профиль</SpanStyle>
                                 <Input

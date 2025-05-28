@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../../store/slices/ProductSlice';
@@ -9,11 +9,9 @@ import strelka from "../../assets/icon/Vector 12.png";
 
 const PhoneCard = () => {
   const dispatch = useDispatch();
-const products = useSelector((state) => state.product.items)
-const status = useSelector((state) => state.product.status)
-const next = useSelector((state) => state.product.next)
-
-
+  const products = useSelector((state) => state.product.items)
+  const status = useSelector((state) => state.product.status)
+  const next = useSelector((state) => state.product.next)
   const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
@@ -36,8 +34,6 @@ const next = useSelector((state) => state.product.next)
       <Grid>
         {products.slice(0, visibleCount).map((product) => (
           <Card key={product.id}>
-
-
             <LikeButton />
             <img
               src={product.images[0]?.image || 'https://via.placeholder.com/200'}
@@ -60,7 +56,6 @@ const next = useSelector((state) => state.product.next)
           </Card>
         ))}
       </Grid>
-
       {(visibleCount < products.length || next) && (
         <LoadMoreButton onClick={handleLoadMore} disabled={status === 'loading'}>
           Показать ещё
@@ -73,7 +68,7 @@ const next = useSelector((state) => state.product.next)
 
 export default PhoneCard;
 
-  const Grid = styled.div`
+const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 14px;
@@ -82,7 +77,7 @@ export default PhoneCard;
     max-width: 1000px;
   `;
 
-  const Card = styled.div`
+const Card = styled.div`
     width: 260px;
     height: 384px;
     position: relative;
@@ -92,7 +87,7 @@ export default PhoneCard;
     overflow: hidden;
   `;
 
-  const LoadMoreButton = styled.button`
+const LoadMoreButton = styled.button`
     width: 224px;
     height: 42px;
     display: block;
@@ -117,12 +112,12 @@ export default PhoneCard;
     }
   `;
 
-  const Smg = styled.img`
+const Smg = styled.img`
     width: 11px;
     height: 11px;
   `;
 
-  const Spinner = styled.div`
+const Spinner = styled.div`
     border: 3px solid rgba(0, 0, 0, 0.1);
     border-left-color: #ec4899;
     border-radius: 50%;
