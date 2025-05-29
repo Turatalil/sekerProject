@@ -6,13 +6,7 @@ export const modalEnter = createAsyncThunk(
     async ({ loginIsAccount }, { fulfillWithValue, rejectWithValue }) => {
         try {
             const data = await fetchFromApi(
-                { name: "token/", method: "POST" },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(loginIsAccount),
-                }
+                { name: "token/", method: "POST", loginIsAccount}
             );
             if (data._status !== 200 && data._status !== 201) {
                 throw new Error("Запрос жиберуудо ката кетти!");
