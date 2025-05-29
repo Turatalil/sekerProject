@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProductById, clearSelectedProduct } from '../../store/slices/ProductSlice';
 import styled from 'styled-components';
 import { FaStar } from 'react-icons/fa';
-import cor from '../../assets/image/Vector (4).png';
-import LikeButton from '../LikeButton';
+import cor from "../assets/image/Vector (4).png"
+import LikeButton from '../UI/LikeButton';
+import { clearSelectedProduct, fetchProductById } from '../store/slices/ProductSlice';
 
 const ProductDetail = () => {
   const { id } = useParams();
