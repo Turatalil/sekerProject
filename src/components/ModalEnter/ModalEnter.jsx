@@ -16,9 +16,11 @@ const ModalEnter = ({ setShowModal }) => {
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const isFormValid = email.trim().length > 4 && password.trim().length > 4;
+
     const closeModalHandler = () => {
         setShowModal(false);
     };
+
     const logInIsAccount = () => {
         if (!(email.trim()) || !(password.trim())) {
             return;
@@ -51,68 +53,68 @@ const ModalEnter = ({ setShowModal }) => {
                                 <SpanStyle>Мой профиль</SpanStyle>
                                 <Input
                                     onChange={(e) => setEmail(e.target.value)}
-                                    paddingLeft="20px"
+                                    $paddingLeft="20px"
                                     type="text"
                                     placeholder="User name"
-                                    border="none"
-                                    backgroundColor="#FFFFFF"
-                                    fontFamily="Montserrat"
-                                    fontWeight="500"
-                                    fontSize="20px"
-                                    lineHeight="100%"
-                                    width="368.6px"
-                                    height="55.45px"
-                                    borderRadius="10px"
+                                    $border="none"
+                                    $backgroundColor="#FFFFFF"
+                                    $fontFamily="Montserrat"
+                                    $fontWeight="500"
+                                    $fontSize="20px"
+                                    $lineHeight="100%"
+                                    $width="368.6px"
+                                    $height="55.45px"
+                                    $borderRadius="10px"
                                 />
                                 <Input
                                     onChange={(e) => setPassword(e.target.value)}
                                     type="password"
                                     placeholder="Пароль"
-                                    border="none"
-                                    backgroundColor="#FFFFFF"
-                                    fontFamily="Montserrat"
-                                    fontWeight="500"
-                                    fontSize="20px"
-                                    lineHeight="100%"
-                                    width="368.6px"
-                                    height="55.45px"
-                                    borderRadius="10px"
+                                    $border="none"
+                                    $backgroundColor="#FFFFFF"
+                                    $fontFamily="Montserrat"
+                                    $fontWeight="500"
+                                    $fontSize="20px"
+                                    $lineHeight="100%"
+                                    $width="368.6px"
+                                    $height="55.45px"
+                                    $borderRadius="10px"
                                 />
                                 <Button
-                                    fontColor="#000000"
+                                    $fontColor="#000000"
                                     url={ImageGoogle}
-                                    border="none"
-                                    margin="auto"
-                                    display="flex"
-                                    gap="5px"
-                                    justifyContent="center"
-                                    alignItems="center"
-                                    fontFamily="Montserrat"
-                                    fontWeight="500"
-                                    fontSize="23px"
-                                    lineHeight="100%"
-                                    cursor="pointer"
+                                    $border="none"
+                                    $margin="auto"
+                                    $display="flex"
+                                    $gap="5px"
+                                    $justifyContent="center"
+                                    $alignItems="center"
+                                    $fontFamily="Montserrat"
+                                    $fontWeight="500"
+                                    $fontSize="23px"
+                                    $lineHeight="100%"
+                                    $cursor="pointer"
                                     buttonName="Войти через Google"
-                                    width="369px"
-                                    height="48px"
-                                    borderRadius="10px"
-                                    backgroundColor="#FFFFFF"
+                                    $width="369px"
+                                    $height="48px"
+                                    $borderRadius="10px"
+                                    $backgroundColor="#FFFFFF"
                                 />
                                 <Button
                                     onClick={logInIsAccount}
-                                    cursor="pointer"
-                                    color="#FFFFFF"
-                                    fontFamily="Montserrat"
-                                    fontWeight="600"
-                                    fontSize="28px"
-                                    lineHeight="100%"
+                                    $cursor="pointer"
+                                    $color="#FFFFFF"
+                                    $fontFamily="Montserrat"
+                                    $fontWeight="600"
+                                    $fontSize="28px"
+                                    $lineHeight="100%"
                                     buttonName={isLoading ? <LoaderSpiner /> : "Войти"}
-                                    width="368.6px"
-                                    height="52.39px"
-                                    border="none"
-                                    borderRadius="10px"
+                                    $width="368.6px"
+                                    $height="52.39px"
+                                    $border="none"
+                                    $borderRadius="10px"
                                     disabled={!isFormValid}
-                                    backgroundColor="#FC3A74"
+                                    $backgroundColor="#FC3A74"
                                 />
                                 <SpanErrorStyle>{error ? error : ""}</SpanErrorStyle>
                             </DivStyle>
@@ -125,7 +127,8 @@ const ModalEnter = ({ setShowModal }) => {
         </div>
     );
 };
-export default ModalEnter
+
+export default ModalEnter;
 
 const DivStyle = styled.div`
     display: flex;
@@ -133,12 +136,13 @@ const DivStyle = styled.div`
     align-items: center;
     flex-direction: column;
     height: 420px;
-`
+`;
+
 const SpanErrorStyle = styled.span`
     color: red;
     font-size: 14px;
     font-weight: 500;
-`
+`;
 
 const LoaderSpiner = styled.span`
     width: 40px;
@@ -149,8 +153,7 @@ const LoaderSpiner = styled.span`
     display: inline-block;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
-    `
-
+`;
 
 const BackdropStyle = styled.div`
     display: flex;
@@ -163,14 +166,15 @@ const BackdropStyle = styled.div`
     top: 0;
     left: 0;
     background-color: #00000080;
-    
+
     @keyframes rotation {
-    0% {
-        transform: rotate(0deg);
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
-    100% {
-        transform: rotate(360deg);
-    }}
 `;
 
 const ContainerEnter = styled.div`

@@ -14,11 +14,11 @@ const HeaderSearch = () => {
                 borderRadius="10px"
                 placeholder="Что вы ищете?"
                 border="none"
-                backgroundColor="#F4F4F4"
+                $backgroundColor="#F4F4F4"
                 fontFamily="Montserrat"
                 fontWeight="400"
                 fontSize="16px"
-                lineHeight="100%"
+                $lineHeight="100%"
                 letterSpacing="0%"
                 fontColor="#000000"
             />
