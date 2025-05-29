@@ -14,4 +14,4 @@ const MainRoute = () => {
     )
 }
 
-export default MainRoute
+export default MainRoute;

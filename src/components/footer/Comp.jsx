@@ -8,6 +8,6 @@ const Comp = () => {
         </h1>
     </div>
   )
-}
+} 
 
 export default Comp
