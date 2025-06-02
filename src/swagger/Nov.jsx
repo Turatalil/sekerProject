@@ -1,21 +1,14 @@
 import styled from 'styled-components'
-import Button from '../UI/Button/Button'
-import { useNavigate } from 'react-router-dom'
 
-const Novinki = () => {
-    const navigate = useNavigate()
-    const clickHandlerAddPhone = ()=>{
-        navigate("/add-phone")
-    }
+const Nov = () => {
     return (
         <Div>
             <SpanStyle>Новинки</SpanStyle>
-            <Button onClick={clickHandlerAddPhone} />
         </Div>
     )
 }
 
-export default Novinki
+export default Nov
 
 const SpanStyle = styled.span`
 width: 1170px;

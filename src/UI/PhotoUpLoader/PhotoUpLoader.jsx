@@ -57,7 +57,7 @@ const PhotoUpLoader = () => {
                         <img src={ImageAdd} alt="" />
                         <MoreVertIcon
                             onClick={() => openModal(el.id)}
-                            style={{ position: "relative", bottom: "9em", left: "-45px", cursor: "pointer" }}
+                            style={{ position: "relative", bottom: "240px", left: "240px" , cursor: "pointer" }}
                         />
                         <ImageMap src={el.photo} alt="uploaded" />
                         {activeModalId === el.id && (
@@ -103,7 +103,7 @@ const ButtonRow = styled.div`
     position: absolute;
     flex-direction: column;
     gap: 10px;
-    left: 5em;
+    left: 4.5em;
     bottom: 130px;
     margin-left: 117px;
     width: 100px;
@@ -159,6 +159,9 @@ const DeleteButton = styled.button`
 const PhotoMap = styled.div`
     display: flex;
     gap: 101px;
+    width: 1020px;
+    margin: auto;
+    margin-top: 42px;
 `;
 
 const ImageMap = styled.img`

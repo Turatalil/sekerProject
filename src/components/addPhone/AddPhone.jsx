@@ -1,27 +1,45 @@
 import Input from "../../UI/Input/Input"
 import styled from 'styled-components'
 import Button from '../../UI/Button/Button'
-import ImageSelect from "../../assets/icon/image 115.png"
+import { useDispatch } from "react-redux"
+import { useState } from "react"
+import { addPhone } from "../../store/slices/AddPhone"
 const AddPhone = () => {
+    const dispatch = useDispatch()
+    const [manufacturerProduct, setManufacturerProduct] = useState("")
+    const [nameProduct, setNameProduct] = useState("")
+    const [priceProduct, setPriceProduct] = useState("")
+    const [characteristicProduct, setCharacteristicProduct] = useState("")
+    const [isNew, setIsNew] = useState(false)
+    const addNewPhoneHandler = () => {
+        const newProduct = {
+            characteristics: characteristicProduct,
+            price: priceProduct,
+            title: nameProduct,
+            description: manufacturerProduct,
+            new: isNew
+        }
+        dispatch(addPhone(newProduct))
+    }
     return (
         <GlobalContainer>
             <div>
                 <div>
-                    <SpanSelectStyle name="gol">Производитель<ImageStyle src={ImageSelect} alt="" /></SpanSelectStyle>
-                    <GlobalSelectStyle name="gol" id="">
+                    <SpanSelectStyle>Производитель:</SpanSelectStyle>
+                    {/* <GlobalSelectStyle name="gol" id="">
+                        <OptionSelectStyle value="samsung">Samsung</OptionSelectStyle>
                         <OptionSelectStyle value="apple">Apple</OptionSelectStyle>
                         <OptionSelectStyle value="nokia">Nokia</OptionSelectStyle>
                         <OptionSelectStyle value="realme">Realme</OptionSelectStyle>
-                        <OptionSelectStyle value="samsung">Samsung</OptionSelectStyle>
                         <OptionSelectStyle value="xiaomi">Xiaomi</OptionSelectStyle>
-                    </GlobalSelectStyle>
-                    <Input fontSize="20px" marginTop="6px" width="401px" height="46px" borderRadius="10px" borderWidth="1px" backgroundColor="#FFFFFF" border="1px solid #C1C1C1" />
+                    </GlobalSelectStyle> */}
+                    <Input fontSize="20px" onChange={(e) => setManufacturerProduct(e.target.value)} marginTop="6px" width="401px" height="46px" borderRadius="10px" borderWidth="1px" backgroundColor="#FFFFFF" border="1px solid #C1C1C1" />
                 </div>
                 <InputDivTwoStyle>
                     <SpanCharacteristic>Характеристика товара:</SpanCharacteristic>
-                    <Input fontSize="20px" marginTop="6px" width="401px" height="46px" borderRadius="10px" borderWidth="1px" backgroundColor="#FFFFFF" border="1px solid #C1C1C1" />
+                    <Input onChange={(e) => setCharacteristicProduct(e.target.value)} fontSize="20px" marginTop="6px" width="401px" height="46px" borderRadius="10px" borderWidth="1px" backgroundColor="#FFFFFF" border="1px solid #C1C1C1" />
                 </InputDivTwoStyle>
-                <InputContainer>
+                {/* <InputContainer>
                     <CheckboxContainer>
                         <CheckboxLabel>
                             <CheckboxInput defaultChecked />
@@ -32,29 +50,50 @@ const AddPhone = () => {
                             <SpanStyleFontbl>Б/У</SpanStyleFontbl>
                         </CheckboxLabel>
                     </CheckboxContainer>
+                </InputContainer> */}
+                <InputContainer>
+                    <CheckboxContainer>
+                        <CheckboxLabel>
+                            <CheckboxInput
+                                type="checkbox"
+                                checked={isNew}
+                                onChange={() => setIsNew(true)}
+                            />
+                            <SpanStyleFontNew>Новый</SpanStyleFontNew>
+                        </CheckboxLabel>
+
+                        <CheckboxLabel>
+                            <CheckboxInput
+                                type="checkbox"
+                                checked={!isNew}
+                                onChange={() => setIsNew(false)}
+                            />
+                            <SpanStyleFontbl>Б/У</SpanStyleFontbl>
+                        </CheckboxLabel>
+                    </CheckboxContainer>
                 </InputContainer>
             </div>
             <div>
                 <div>
                     <SpanNameProduct>Названия товара:</SpanNameProduct>
-                    <Input fontSize="20px" marginTop="6px" width="401px" height="46px" borderRadius="10px" borderWidth="1px" backgroundColor="#FFFFFF" border="1px solid #C1C1C1" />
+                    <Input onChange={(e) => setNameProduct(e.target.value)} fontSize="20px" marginTop="6px" width="401px" height="46px" borderRadius="10px" borderWidth="1px" backgroundColor="#FFFFFF" border="1px solid #C1C1C1" />
                 </div>
                 <InputPhooStyle>
                     <SpanPriceProduct>Цена товара:</SpanPriceProduct>
-                    <Input fontSize="20px" marginTop="6px" width="401px" height="46px" borderRadius="10px" borderWidth="1px" backgroundColor="#FFFFFF" border="1px solid #C1C1C1" />
+                    <Input onChange={(e) => setPriceProduct(e.target.value)} fontSize="20px" marginTop="6px" width="401px" height="46px" borderRadius="10px" borderWidth="1px" backgroundColor="#FFFFFF" border="1px solid #C1C1C1" />
                 </InputPhooStyle>
                 <GlobalContainerStyle>
                     <SpanColorStyle>Цвет</SpanColorStyle>
                     <ContainerColorStyle>
-                        <Button borderRadius="50%" cursor="pointer" backgroundColor="#000000" width="30px" height="30px" border="1px solid #C1C1C1" />
-                        <Button borderRadius="50%" cursor="pointer" backgroundColor="#FFFFFF" width="30px" height="30px" border="1px solid #C1C1C1" />
-                        <Button borderRadius="50%" cursor="pointer" backgroundColor="#FF0000" width="30px" height="30px" border="1px solid #C1C1C1" />
-                        <Button borderRadius="50%" cursor="pointer" backgroundColor="#22BDFF" width="30px" height="30px" border="1px solid #C1C1C1" />
-                        <Button borderRadius="50%" cursor="pointer" backgroundColor="#FF1CBF" width="30px" height="30px" border="1px solid #C1C1C1" />
-                        <Button borderRadius="50%" cursor="pointer" backgroundColor="#0029FF" width="30px" height="30px" border="1px solid #C1C1C1" />
+                        <Button $borderRadius="50%" buttonName $cursor="pointer" $backgroundColor="#000000" $width="30px" $height="30px" $border="1px solid #C1C1C1" />
+                        <Button $borderRadius="50%" buttonName $cursor="pointer" $backgroundColor="#FFFFFF" $width="30px" $height="30px" $border="1px solid #C1C1C1" />
+                        <Button $borderRadius="50%" buttonName $cursor="pointer" $backgroundColor="#FF0000" $width="30px" $height="30px" $border="1px solid #C1C1C1" />
+                        <Button $borderRadius="50%" buttonName $cursor="pointer" $backgroundColor="#22BDFF" $width="30px" $height="30px" $border="1px solid #C1C1C1" />
+                        <Button $borderRadius="50%" buttonName $cursor="pointer" $backgroundColor="#FF1CBF" $width="30px" $height="30px" $border="1px solid #C1C1C1" />
+                        <Button $borderRadius="50%" buttonName $cursor="pointer" $backgroundColor="#0029FF" $width="30px" $height="30px" $border="1px solid #C1C1C1" />
                     </ContainerColorStyle>
                 </GlobalContainerStyle>
-                <Button fontWeight="600" border="none" cursor="pointer" marginTop="72px" color="#FFFFFF" fontSize="20px" lineHeight="100%" backgroundColor="#FC3A74" buttonName="Сохранить" width="256px" height="48px" borderRadius="10px" fontFamily="Montserrat" />
+                <Button onClick={addNewPhoneHandler} fontWeight="600" border="none" cursor="pointer" $marginRight="180px" color="#FFFFFF" fontSize="20px" lineHeight="100%" backgroundColor="#FC3A74" buttonName="Сохранить" width="256px" height="48px" borderRadius="10px" fontFamily="Montserrat" />
             </div>
         </GlobalContainer>
     )
@@ -102,6 +141,7 @@ const SpanStyleFontbl = styled.span`
 
 const GlobalContainerStyle = styled.div`
     margin-top: 58px;
+    margin-bottom: 72px;
 
 `
 
@@ -123,9 +163,10 @@ const ContainerColorStyle = styled.div`
 
 const GlobalContainer = styled.div`
     display: flex;
-    gap: 208px;
+    justify-content: space-between;
     margin: auto;
     width: 1020px;
+    margin-top: 63px;
 `
 
 const InputPhooStyle = styled.div`

@@ -35,7 +35,7 @@ const ModalEnter = ({ setShowModal }) => {
             .then((data) => {
                 setIsLoading(false);
                 setShowModal(false);
-                navigate("/user");
+                navigate("/admin");
             })
             .catch((err) => {
                 setIsLoading(false);

@@ -3,18 +3,20 @@ import User from './User';
 import Admin from './Admin';
 import PageNotFound from '../pages/PageNotFound';
 import PrivateRoute from '../pages/PrivateRoute';
+import PhoneAdd from '../pages/PhoneAdd';
 const MainRoute = () => {
     return (
         <Routes>
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/user" element={<User />} />
             <Route
-                path="/user"
+                path="/admin"
                 element={
                     <PrivateRoute>
-                        <User />
+                        <Admin />
                     </PrivateRoute>
                 }
             />
+                <Route path="add-phone" element={<PhoneAdd/>}/>
             <Route path="*" element={<PageNotFound />} />
         </Routes>
     );

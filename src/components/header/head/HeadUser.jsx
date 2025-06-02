@@ -1,10 +1,10 @@
 import HeaderIcon from './headerIcon/HeaderIcon'
 import HeaderFont from './headerFont/HeaderFont'
 import HeaderSearch from './headerInput/HeaderSearch'
-import HeadEnterUser from './headEnterUser/HeadEnterUser'
 import HeaderMarks from './headerMarks/HeaderMarks'
 import HeaderBasket from './heaederBasket/HeaderBasket'
 import styled from 'styled-components'
+import HeaderEnter from './headerEnter/HeaderEnter'
 
 const HeadUser = () => {
     return (
@@ -12,7 +12,7 @@ const HeadUser = () => {
             <HeaderIcon />
             <HeaderFont />
             <HeaderSearch />
-            <HeadEnterUser />
+            <HeaderEnter />
             <HeaderMarks />
             <HeaderBasket />
         </GlobalContainer>
