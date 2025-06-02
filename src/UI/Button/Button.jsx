@@ -1,4 +1,3 @@
-// Fixed Button.jsx
 import styled from 'styled-components';
 
 const Button = (props) => {
@@ -7,11 +6,9 @@ const Button = (props) => {
             <ButtonStyle
                 disabled={props.disabled}
                 $backgroundColor={props.$backgroundColor}
-                $marginBottom={props.$marginBottom}
                 $borderRadius={props.$borderRadius}
                 $fontFamily={props.$fontFamily}
                 $fontWeight={props.$fontWeight}
-                $marginTop={props.$marginTop}
                 $fontColor={props.$fontColor}
                 $fontSize={props.$fontSize}
                 $gap={props.$gap}
@@ -23,7 +20,10 @@ const Button = (props) => {
                 $width={props.$width}
                 $cursor={props.$cursor}
                 $display={props.$display}
+                $marginBottom={props.$marginBottom}
                 $justifyContent={props.$justifyContent}
+                $marginTop={props.$marginTop}
+                $marginRight={props.$marginRight}
                 $alignItems={props.$alignItems}
             >
                 <img src={props.url} alt="" />{props.buttonName ? props.buttonName : "Добавить"}
@@ -55,6 +55,7 @@ const ButtonStyle = styled.button`
     display: ${(props) => props.$display || "flex"};
     justify-content: ${(props) => props.$justifyContent || "center"};
     align-items: ${(props) => props.$alignItems || "center"};
+    margin-right: ${(props) => props.$marginRight};
 
     :disabled {
         pointer-events: none;

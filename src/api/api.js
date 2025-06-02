@@ -5,9 +5,12 @@ export const fetchFromApi = async ({ name, method, id, loginIsAccount }, options
             method, ...options,
             headers: {  
                 "Content-Type": "application/json",
+                Authorization:  `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjc0MDExLCJpYXQiOjE3NDg2NjkyMTEsImp0aSI6IjQ5MWYxN2M3MTY0ZTQ5NDZiODRjMjQ0ODYwYjc3NTFhIiwidXNlcl9pZCI6MX0.t9lXGzSFwXe-5K2is7Tm3hNyutvtKjMukgAN1QfOJNU"}`
             },
             body: JSON.stringify(loginIsAccount),
+            
         });
+        console.log(loginIsAccount);
         const data = await res.json();
         data._status = res.status;
         return data;

@@ -2,17 +2,17 @@ import HeadUser from '../components/header/head/HeadUser'
 import Footer from '../components/footer/Footer'
 import PromoSlider from '../swagger/PromoSlider'
 import styled from 'styled-components'
-import Novinki from '../swagger/Novinki'
 import PriceFilter from '../UI/PriceFilter'
 import ColorFilter from '../UI/ColorFilter'
 import ManufacturerFilter from '../UI/ManufacturerFilter'
 import PhoneCard from '../UI/masiv/PhoneCard'
+import Nov from '../swagger/Nov'
 const User = () => {
     return (
         <div>
             <HeadUser/>
             <PromoSlider/>
-            <Novinki/>
+            <Nov/>
             <MainStyle>
                 <div>
                     <PriceFilter/>
