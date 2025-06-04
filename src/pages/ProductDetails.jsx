@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { FaStar } from 'react-icons/fa';
-import cor from "../assets/image/Vector (4).png"
 import LikeButton from '../UI/LikeButton';
 import { clearSelectedProduct, fetchProductById } from '../store/slices/ProductSlice';
 
@@ -12,7 +11,7 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.items);
   const selectedProduct = useSelector((state) => state.product.selectedProduct);
-  const selectedProductStatus = useSelector((state) => state.product.selectedProductStatus);
+  const status = useSelector((state) => state.product.selectedProductStatus);
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
@@ -28,163 +27,236 @@ const ProductDetail = () => {
     };
   }, [id, products, dispatch]);
 
-  const handleQuantityChange = (delta) => {
-    setQuantity((prev) => Math.max(1, prev + delta));
-  };
-
-  if (selectedProductStatus === 'loading') return <div>Загрузка...</div>;
-  if (selectedProductStatus === 'failed') return <div>Не удалось загрузить товар. Попробуйте позже.</div>;
-  if (!selectedProduct) return <div>Продукт не найден</div>;
+  if (status === 'loading') return <Loading>Загрузка...</Loading>;
+  if (status === 'failed') return <Error>Ошибка загрузки</Error>;
+  if (!selectedProduct) return <Error>Продукт не найден</Error>;
 
   return (
-    <DetailContainer>
-      <Image
-        src={selectedProduct.images[0]?.image || 'https://via.placeholder.com/200'}
-        alt={selectedProduct.title}
-      />
-      <DetailContent>
-        <LikeButtonWrapper>
+    <Container>
+      <ImageBlock>
+        <MainImage
+          src={selectedProduct.images[0]?.image || 'https://via.placeholder.com/300'}
+          alt={selectedProduct.title}
+        />
+        <ThumbnailContainer>
+          {selectedProduct.images.slice(1, 4).map((img, index) => (
+            <Thumbnail
+              key={index}
+              src={img.image || 'https://via.placeholder.com/100'}
+              alt={`${selectedProduct.title} thumbnail ${index + 1}`}
+            />
+          ))}
+        </ThumbnailContainer>
+      </ImageBlock>
+
+      <InfoBlock>
+        <Top>
+          <Title>{selectedProduct.title}</Title>
           <LikeButton />
-        </LikeButtonWrapper>
-        <Title>{selectedProduct.title}</Title>
-        <Memory>{selectedProduct.characteristics || '256Gb'}</Memory>
-        <Price>{selectedProduct.price} сом</Price>
+        </Top>
+
         <Rating>
           <FaStar color="#f43f5e" />
           <span>{selectedProduct.stars || '5.0'}</span>
-          <span>({selectedProduct.feedbacks || '0'} отзывов)</span>
+          <span>({selectedProduct.feedbacks || 0} отзывов)</span>
         </Rating>
-        <ColorSelector>
+
+        <Characteristic>{selectedProduct.characteristics || '256GB'}</Characteristic>
+        <Price>{selectedProduct.price} сом</Price>
+
+        <ColorBlock>
           <span>Цвет:</span>
-          {['#000000', '#808080', '#1E90FF'].map((color) => (
-            <ColorOption key={color} color={color} />
-          ))}
-        </ColorSelector>
-        <QuantitySelector>
+          <ColorOption color="#6B7280" />
+          <ColorOption color="#111827" />
+          <ColorOption color="#3B82F6" selected />
+        </ColorBlock>
+
+        <QuantityBlock>
           <span>Количество:</span>
-          <QuantityButton onClick={() => handleQuantityChange(-1)}>-</QuantityButton>
-          <QuantityDisplay>{quantity}</QuantityDisplay>
-          <QuantityButton onClick={() => handleQuantityChange(1)}>+</QuantityButton>
-        </QuantitySelector>
-        <BuyButton>
-          <img src={cor} alt="basket" />
-          В корзину
-        </BuyButton>
-      </DetailContent>
-    </DetailContainer>
+          <Button onClick={() => setQuantity(q => Math.max(1, q - 1))}>-</Button>
+          <Qty>{quantity}</Qty>
+          <Button onClick={() => setQuantity(q => q + 1)}>+</Button>
+        </QuantityBlock>
+
+        <Buttons>
+          <AddToCart>
+            В корзину
+          </AddToCart>
+          <BuyNow>Купить сейчас</BuyNow>
+        </Buttons>
+      </InfoBlock>
+    </Container>
   );
 };
 
 export default ProductDetail;
 
-const DetailContainer = styled.div`
-  display: flex;
-  gap: 24px;
-  padding: 24px;
+const Container = styled.div`
   max-width: 1000px;
-  margin: 0 auto;
+  display: flex;
+  gap: 32px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f9fafb;
 `;
 
-const Image = styled.img`
-  width: 300px;
-  height: 300px;
-  object-fit: contain;
-`;
-
-const DetailContent = styled.div`
+const ImageBlock = styled.div`
   flex: 1;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
-const LikeButtonWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
+const MainImage = styled.img`
+  width: 320px;
+  height: 320px;
+  object-fit: contain;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
 `;
 
-const Title = styled.h1`
+const ThumbnailContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+`;
+
+const Thumbnail = styled.img`
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+`;
+
+const InfoBlock = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+const Top = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+`;
+
+const Title = styled.h2`
   font-size: 24px;
-  margin: 0 0 8px;
-  color: #333;
-`;
-
-const Memory = styled.p`
-  font-size: 16px;
-  color: #666;
-  margin: 0 0 8px;
-`;
-
-const Price = styled.p`
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0 0 16px;
-  color: #333;
+  color: #111827;
+  margin: 0;
 `;
 
 const Rating = styled.div`
   display: flex;
-  gap: 6px;
   align-items: center;
+  gap: 6px;
+  color: #6b7280;
   font-size: 14px;
-  color: #666;
-  margin-bottom: 16px;
 `;
 
-const ColorSelector = styled.div`
+const Characteristic = styled.div`
+  font-size: 16px;
+  color: #6b7280;
+`;
+
+const Price = styled.div`
+  font-size: 24px;
+  color: #111827;
+  font-weight: bold;
+`;
+
+const ColorBlock = styled.div`
   display: flex;
-  gap: 8px;
   align-items: center;
-  margin-bottom: 16px;
+  gap: 10px;
 `;
 
 const ColorOption = styled.div`
-  width: 20px;
-  height: 20px;
-  background-color: ${(props) => props.color};
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
+  background-color: ${props => props.color};
+  border: ${props => (props.selected ? '2px solid #000' : '1px solid #d1d5db')};
   cursor: pointer;
-  border: 2px solid #ccc;
 `;
 
-const QuantitySelector = styled.div`
+const QuantityBlock = styled.div`
   display: flex;
-  gap: 8px;
   align-items: center;
-  margin-bottom: 16px;
+  gap: 10px;
 `;
 
-const QuantityButton = styled.button`
-  width: 30px;
-  height: 30px;
-  background: #f0f0f0;
+const Button = styled.button`
+  width: 25px;
+  height: 25px ;
+  top: 512px;
+  left: 863px;
+  background-color: #9292EF;
   border: none;
+  color: white;
   border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
 `;
 
-const QuantityDisplay = styled.span`
+const Qty = styled.span`
   font-size: 16px;
-  width: 30px;
+  min-width: 20px;
   text-align: center;
 `;
 
-const BuyButton = styled.button`
-  width: 224px;
-  height: 42px;
-  padding: 10px 24px;
+const Buttons = styled.div`
+  display: flex;
+  gap: 12px;
+  width: 300px;
+`;
+
+const BuyNow = styled.button`
+  width: 60px;
+  height: 50px;
+  flex: 1;
+  padding: 10px 16px;
+  background: white;
+  color: #9292EF;
   font-size: 16px;
-  color: #ec4899;
-  border: 2px solid #ec4899;
-  background: transparent;
-  border-radius: 40px;
+  border: 1px solid #9292EF;
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    background: white;
+  }
+`;
+
+const AddToCart = styled.button`
+  width: 60px;
+  flex: 1;
+  padding: 10px 16px;
+  background: #9292EF;
+  color: white;
+  font-size: 16px;
+  border: 1px solid #9292EF;
+  border-radius: 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-
+  justify-content: center;
   &:hover {
-    background: #ec4899;
-    color: white;
+    background: #9292EF;
   }
+`;
+
+const Loading = styled.div`
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+`;
+
+const Error = styled.div`
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: red;
 `;

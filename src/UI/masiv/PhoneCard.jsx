@@ -16,6 +16,7 @@ const PhoneCard = () => {
   const navigate = useNavigate(); 
 
   const [visibleCount, setVisibleCount] = useState(6);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   useEffect(() => {
     if (status === 'idle') {
@@ -23,11 +24,13 @@ const PhoneCard = () => {
     }
   }, [dispatch, status]);
 
-  const handleLoadMore = () => {
+  const handleLoadMore = async () => {
     if (visibleCount < products.length) {
       setVisibleCount((prev) => prev + 6);
     } else if (next && status !== 'loading') {
-      dispatch(fetchProducts(next));
+      setIsLoadingMore(true);
+      await dispatch(fetchProducts(next));
+      setIsLoadingMore(false);
       setVisibleCount((prev) => prev + 6);
     }
   };
@@ -63,9 +66,9 @@ const PhoneCard = () => {
       </Grid>
 
       {(visibleCount < products.length || next) && (
-        <LoadMoreButton onClick={handleLoadMore} disabled={status === 'loading'}>
+        <LoadMoreButton onClick={handleLoadMore} disabled={isLoadingMore}>
           Показать ещё
-          {status === 'loading' ? <Spinner /> : <ArrowIcon src={strelka} alt="стрелка" />}
+          {isLoadingMore ? <Spinner /> : <ArrowIcon src={strelka} alt="стрелка" />}
         </LoadMoreButton>
       )}
     </>
@@ -73,6 +76,7 @@ const PhoneCard = () => {
 };
 
 export default PhoneCard;
+
 
 const Grid = styled.div`
   display: grid;
@@ -226,7 +230,7 @@ const Spinner = styled.div`
 //   return (
 //     <>
 //       <Grid>
-//         {products.slice(0, visibleCount).map((product) => (
+        // {products.slice(0, visibleCount).map((product) => (
 //           <Card key={product.id}>
 
 
