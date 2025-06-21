@@ -50,8 +50,8 @@ export const loginIsAccountSlice = createSlice({
             .addCase(modalEnter.rejected, (state, action) => {
                 state.loading = false;
                 state.isAuthenticated = false;
-                state.message = action.payload || "Ошибка при входе";
-                state.error = "Ошибка при входе";
+                state.message = action.payload || "Ошибика ";
+                state.error = "Ошибика ";
             });
     },
 });
