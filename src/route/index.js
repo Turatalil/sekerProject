@@ -3,6 +3,7 @@ import User from './User'
 import Admin from './Admin'
 import PageNotFound from '../pages/PageNotFound'
 import ProductDetail from '../pages/ProductDetails'
+import ProductDetaislAdmin from '../pages/ProductDetilsAdmin'
 
 const MainRoute = () => {
     return (
@@ -11,6 +12,7 @@ const MainRoute = () => {
             <Route path="/user" element={<User/>}/>
             <Route path='*' element={<PageNotFound/>}/>
             <Route path='product/:id' element={<ProductDetail/>} />
+            <Route path='productt' element={<ProductDetaislAdmin/>}/>
         </Routes>
     )
 }
