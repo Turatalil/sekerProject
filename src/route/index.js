@@ -4,6 +4,7 @@ import Admin from './Admin';
 import PageNotFound from '../pages/PageNotFound';
 import PrivateRoute from '../pages/PrivateRoute';
 import PhoneAdd from '../pages/PhoneAdd';
+import ProductDetail from '../pages/ProductDetails';
 const MainRoute = () => {
     return (
         <Routes>
@@ -18,6 +19,7 @@ const MainRoute = () => {
             />
                 <Route path="add-phone" element={<PhoneAdd/>}/>
             <Route path="*" element={<PageNotFound />} />
+            <Route path='product/:id' element={<ProductDetail/>} />
         </Routes>
     );
 };

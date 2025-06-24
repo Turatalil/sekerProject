@@ -6,6 +6,7 @@ import { FaStar } from 'react-icons/fa';
 import cor from '../../assets/image/Vector (4).png';
 import LikeButton from '../LikeButton';
 import strelka from "../../assets/icon/Vector 12.png";
+import { Link } from 'react-router-dom';
 
 const PhoneCard = () => {
   const dispatch = useDispatch();
@@ -33,28 +34,35 @@ const PhoneCard = () => {
     <>
       <Grid>
         {products.slice(0, visibleCount).map((product) => (
-          <Card key={product.id}>
-            <LikeButton />
-            <img
-              src={product.images[0]?.image || 'https://via.placeholder.com/200'}
-              alt={product.title}
-              style={{ width: '100%', height: '200px', objectFit: 'contain' }}
-            />
-            <div style={{ padding: '16px' }}>
-              <h3>{product.title}</h3>
-              <p>{product.characteristics}</p>
-              <p style={{ fontWeight: 'bold' }}>{product.price} сом</p>
-              <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-                <FaStar color="#f43f5e" />
-                <span>{product.stars}</span>
-                <span>{product.feedbacks} отзывов</span>
-              </div>
-            </div>
-            <div style={{ position: 'absolute', bottom: '16px', right: '16px' }}>
-              <img src={cor} alt="basket" />
-            </div>
-          </Card>
-        ))}
+  <Link
+    to={`/product/${product.id}`} 
+    key={product.id} 
+    style={{ textDecoration: 'none', color: 'inherit' }}
+  >
+    <Card>
+      <LikeButton />
+      <img
+        src={product.images[0]?.image || 'https://via.placeholder.com/200'}
+        alt={product.title}
+        style={{ width: '100%', height: '200px', objectFit: 'contain' }}
+      />
+      <div style={{ padding: '16px' }}>
+        <h3>{product.title}</h3>
+        <p>{product.characteristics}</p>
+        <p style={{ fontWeight: 'bold' }}>{product.price} сом</p>
+        <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+          <FaStar color="#f43f5e" />
+          <span>{product.stars}</span>
+          <span>{product.feedbacks} отзывов</span>
+        </div>
+      </div>
+      <div style={{ position: 'absolute', bottom: '16px', right: '16px' }}>
+        <img src={cor} alt="basket" />
+      </div>
+    </Card>
+  </Link>
+))}
+
       </Grid>
       {(visibleCount < products.length || next) && (
         <LoadMoreButton onClick={handleLoadMore} disabled={status === 'loading'}>
