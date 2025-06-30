@@ -5,6 +5,8 @@ import PageNotFound from '../pages/PageNotFound';
 import PrivateRoute from '../pages/PrivateRoute';
 import PhoneAdd from '../pages/PhoneAdd';
 import ProductDetail from '../pages/ProductDetails';
+import ProductDetailAdmin from '../pages/ProductDetilsAdmin';
+
 const MainRoute = () => {
     return (
         <Routes>
@@ -17,9 +19,17 @@ const MainRoute = () => {
                     </PrivateRoute>
                 }
             />
-                <Route path="add-phone" element={<PhoneAdd/>}/>
+            <Route
+                path="/admin/product/:id"
+                element={
+                    <PrivateRoute>
+                        <ProductDetailAdmin />
+                    </PrivateRoute>
+                }
+            />
+            <Route path="add-phone" element={<PhoneAdd />} />
+            <Route path="product/:id" element={<ProductDetail />} />
             <Route path="*" element={<PageNotFound />} />
-            <Route path='product/:id' element={<ProductDetail/>} />
         </Routes>
     );
 };
