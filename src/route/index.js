@@ -41,8 +41,8 @@ import Admin from './Admin';
 import PageNotFound from '../pages/PageNotFound';
 import PrivateRoute from '../pages/PrivateRoute';
 import PhoneAdd from '../pages/PhoneAdd';
-import ProductDetail from '../pages/ProductDetails';
-import ProductDetailAdmin from '../pages/ProductDetilsAdmin';
+import ProductDetail from '../pages/ProductDetails'
+import ProductDetailAdmin from '../pages/ProductDetilAdmin'
 
 const MainRoute = () => {
     return (
@@ -62,7 +62,7 @@ const MainRoute = () => {
                 path="/admin/product/:id"
                 element={
                     <PrivateRoute>
-                        <ProductDetailAdmin />
+                        <ProductDetailAdmin/>
                     </PrivateRoute>
                 }
             />

@@ -86,7 +86,6 @@ const ProductDetailAdmin = () => {
 
 export default ProductDetailAdmin;
 
-// Стили те же
 const Container = styled.div`
   max-width: 1000px;
   display: flex;
