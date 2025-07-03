@@ -88,7 +88,6 @@ const Grid = styled.div`
     margin: 0 auto;
     max-width: 1000px;
   `;
-
 const Card = styled.div`
     width: 260px;
     height: 384px;

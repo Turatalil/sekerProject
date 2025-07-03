@@ -37,9 +37,9 @@ const ModalEnter = ({ setShowModal }) => {
                 setShowModal(false);
                 navigate("/admin");
             })
-            .catch((err) => {
+            .catch((    ) => {
                 setIsLoading(false);
-                console.error("Login error:", err);
+                console.error("Login error:");
             });
     };
 
