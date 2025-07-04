@@ -41,12 +41,18 @@ export const loginIsAccountSlice = createSlice({
                 state.isAuthenticated = false;
                 state.error = "";
             })
-            .addCase(modalEnter.fulfilled, (state) => {
+            .addCase(modalEnter.fulfilled, (state, action) => {
                 state.loading = false;
                 state.message = "";
                 state.isAuthenticated = true;
                 state.error = "";
-            })
+
+                const token = action.payload?.token;
+                if (token) {
+                    localStorage.setItem("token", token);
+                }
+})
+
             .addCase(modalEnter.rejected, (state, action) => {
                 state.loading = false;
                 state.isAuthenticated = false;
